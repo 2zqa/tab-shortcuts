@@ -1,28 +1,28 @@
 {
-    "name": "Tab Shortcuts",
-    "description": "Provides keyboard shortcuts for managing tabs.",
-    "homepage_url": "https://github.com/2zqa/tab-shortcuts",
-    "author": "Marijn Kok",
-    "version": "1.0.0",
-    "icons": {
-        "48": "logo.png"
+  "name": "Tab Shortcuts",
+  "description": "Provides keyboard shortcuts for managing tabs.",
+  "homepage_url": "https://github.com/2zqa/tab-shortcuts",
+  "author": "Marijn Kok",
+  "version": "1.0.0",
+  "icons": {
+    "48": "logo.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "toggle-pin": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Toggles pinned tab(s)"
     },
-    "background": {
-        "scripts": ["background.js"]
-    },
-    "commands": {
-        "toggle-pin": {
-            "suggested_key": {
-                "default": "Alt+P"
-            },
-            "description": "Toggles pinned tab(s)"
-        },
-        "move-to-new-window": {
-            "suggested_key": {
-                "default": "Alt+N"
-            },
-            "description": "Moves tab(s) to a new window"
-        }
-    },
-    "manifest_version": 3
+    "move-to-new-window": {
+      "suggested_key": {
+        "default": "Alt+N"
+      },
+      "description": "Moves tab(s) to a new window"
+    }
+  },
+  "manifest_version": 3
 }
