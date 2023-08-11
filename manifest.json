@@ -4,6 +4,9 @@
     "homepage_url": "https://github.com/2zqa/tab-shortcuts",
     "author": "Marijn Kok",
     "version": "1.0.0",
+    "icons": {
+        "48": "logo.png"
+    },
     "background": {
         "scripts": ["background.js"]
     },
