@@ -3,7 +3,7 @@
   "description": "Provides keyboard shortcuts for managing tabs.",
   "homepage_url": "https://github.com/2zqa/tab-shortcuts",
   "author": "Marijn Kok",
-  "version": "1.0.0-rc.1",
+  "version": "0.1.0",
   "icons": {
     "48": "logo.png"
   },
@@ -30,5 +30,5 @@
       "strict_min_version": "60.0"
     }
   },
-  "manifest_version": 3
+  "manifest_version": 2
 }
