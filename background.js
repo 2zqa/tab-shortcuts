@@ -1,9 +1,16 @@
 chrome.commands.onCommand.addListener(async (action) => {
-  const tabs = await chrome.tabs.query({
-    currentWindow: true,
-    highlighted: true,
+  chrome.tabs.query({ currentWindow: true, highlighted: true }, (tabs) => {
+    handleAction(action, tabs);
   });
+});
 
+/**
+ * Calls the appropriate handler for a given action.
+ *
+ * @param {string} action The action to handle.
+ * @param {Array} tabs The tabs to handle the action for.
+ */
+function handleAction(action, tabs) {
   switch (action) {
     case "toggle-pin":
       handlePinTabs(tabs);
@@ -12,7 +19,7 @@ chrome.commands.onCommand.addListener(async (action) => {
       moveTabsToNewWindow(tabs);
       break;
   }
-});
+}
 
 /**
  * If any of the tabs are unpinned, pin them. Otherwise, unpin them.
