@@ -1,4 +1,4 @@
-chrome.commands.onCommand.addListener(async (action) => {
+chrome.commands.onCommand.addListener((action) => {
   chrome.tabs.query({ currentWindow: true, highlighted: true }, (tabs) => {
     handleAction(action, tabs);
   });
@@ -50,19 +50,19 @@ function setTabsPinnedState(tabs, pinned) {
  *
  * @param {Array} tabs
  */
-async function moveTabsToNewWindow(tabs) {
+function moveTabsToNewWindow(tabs) {
   // Unpin all tabs, otherwise they can't be moved to a new window.
   const pinnedTabs = tabs.filter((tab) => tab.pinned);
   setTabsPinnedState(pinnedTabs, false);
-  const newWindow = await chrome.windows.create({ tabId: tabs[0].id });
+  chrome.windows.create({ tabId: tabs[0].id }, (newWindow) => {
+    // The first tab is already moved.
+    const tabsToMove = tabs.slice(1);
+    chrome.tabs.move(
+      tabsToMove.map((window) => window.id),
+      { windowId: newWindow.id, index: -1 }
+    );
 
-  // The first tab is already moved.
-  const tabsToMove = tabs.slice(1);
-  chrome.tabs.move(
-    tabsToMove.map((window) => window.id),
-    { windowId: newWindow.id, index: -1 }
-  );
-
-  // Re-pin the tabs that were pinned before.
-  setTabsPinnedState(pinnedTabs, true);
+    // Re-pin the tabs that were pinned before.
+    setTabsPinnedState(pinnedTabs, true);
+  });
 }
