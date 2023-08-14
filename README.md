@@ -1,4 +1,4 @@
-# Tab Shortcuts
+# ![logo](https://github.com/2zqa/tab-shortcuts/assets/25235249/01599c74-37fc-4f62-8d54-178a37899ebe) Tab Shortcuts
 
 Organize your tab management with Tab Shortcuts. Use pinning and multiple windows often? Wish there were shortcuts for managing that? Tab Shortcuts fixes that.
 
