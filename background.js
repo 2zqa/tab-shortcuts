@@ -13,10 +13,10 @@ chrome.commands.onCommand.addListener((action) => {
 function handleAction(action, tabs) {
   switch (action) {
     case "toggle-pin":
-      handlePinTabs(tabs);
+      togglePins(tabs);
       break;
     case "move-to-new-window":
-      moveTabsToNewWindow(tabs);
+      handleMoveTabsToNewWindow(tabs);
       break;
   }
 }
@@ -24,7 +24,7 @@ function handleAction(action, tabs) {
 /**
  * If any of the tabs are unpinned, pin them. Otherwise, unpin them.
  */
-function handlePinTabs(tabs) {
+function togglePins(tabs) {
   // If any tab is unpinned, pin all tabs.
   const hasUnpinnedTabs = tabs.some((tab) => !tab.pinned);
   setTabsPinnedState(tabs, hasUnpinnedTabs);
@@ -50,7 +50,7 @@ function setTabsPinnedState(tabs, pinned) {
  *
  * @param {Array} tabs
  */
-function moveTabsToNewWindow(tabs) {
+function handleMoveTabsToNewWindow(tabs) {
   // Unpin all tabs, otherwise they can't be moved to a new window.
   const pinnedTabs = tabs.filter((tab) => tab.pinned);
   const selectedTab = tabs.find((tab) => tab.active);
