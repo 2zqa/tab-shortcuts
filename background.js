@@ -61,13 +61,13 @@ function handleMoveTabsToNewWindow(tabs) {
     const tabsToMove = tabs.slice(1);
     chrome.tabs.move(
       tabsToMove.map((window) => window.id),
-      { windowId: newWindow.id, index: -1 }
+      { windowId: newWindow.id, index: -1 },
+      // Once the tabs are moved, pin the previously pinned tabs and activate
+      // the previously active tab
+      () => {
+        setTabsPinnedState(pinnedTabs, true);
+        chrome.tabs.update(selectedTab.id, { active: true });
+      }
     );
-
-    // Re-pin the tabs that were pinned before.
-    setTabsPinnedState(pinnedTabs, true);
-
-    // Re-select the tab that was active before.
-    chrome.tabs.update(selectedTab.id, { active: true });
   });
 }
