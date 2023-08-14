@@ -46,13 +46,15 @@ function setTabsPinnedState(tabs, pinned) {
 }
 
 /**
- * Moves all tabs to a new window. Retains pinned state.
+ * Moves all tabs to a new window. Retains pinned state and active tab.
  *
  * @param {Array} tabs
  */
 function moveTabsToNewWindow(tabs) {
   // Unpin all tabs, otherwise they can't be moved to a new window.
   const pinnedTabs = tabs.filter((tab) => tab.pinned);
+  const selectedTab = tabs.find((tab) => tab.active);
+
   setTabsPinnedState(pinnedTabs, false);
   chrome.windows.create({ tabId: tabs[0].id }, (newWindow) => {
     // The first tab is already moved.
@@ -64,5 +66,8 @@ function moveTabsToNewWindow(tabs) {
 
     // Re-pin the tabs that were pinned before.
     setTabsPinnedState(pinnedTabs, true);
+
+    // Re-select the tab that was active before.
+    chrome.tabs.update(selectedTab.id, { active: true });
   });
 }
