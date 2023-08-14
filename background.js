@@ -25,7 +25,7 @@ function handleAction(action, tabs) {
  * If any of the tabs are unpinned, pin them. Otherwise, unpin them.
  */
 function togglePins(tabs) {
-  // If any tab is unpinned, pin all tabs.
+  // If any tab is unpinned, pin all tabs
   const hasUnpinnedTabs = tabs.some((tab) => !tab.pinned);
   setTabsPinnedState(tabs, hasUnpinnedTabs);
 }
@@ -51,13 +51,13 @@ function setTabsPinnedState(tabs, pinned) {
  * @param {Array} tabs
  */
 function handleMoveTabsToNewWindow(tabs) {
-  // Unpin all tabs, otherwise they can't be moved to a new window.
+  // Unpin all tabs, otherwise they can't be moved to a new window
   const pinnedTabs = tabs.filter((tab) => tab.pinned);
   const selectedTab = tabs.find((tab) => tab.active);
 
   setTabsPinnedState(pinnedTabs, false);
   chrome.windows.create({ tabId: tabs[0].id }, (newWindow) => {
-    // The first tab is already moved.
+    // The first tab is already moved
     const tabsToMove = tabs.slice(1);
     chrome.tabs.move(
       tabsToMove.map((window) => window.id),
