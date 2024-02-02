@@ -9,7 +9,7 @@ Organize your tab management with Tab Shortcuts. Use pinning and multiple window
 1. **Toggle Pinning:** toggle the pinned state of your selected tab or tabs with <kbd>Alt</kbd>+<kbd>P</kbd>.
 2. **Tab Moving:** moves selected tab or tabs to a new window with <kbd>Alt</kbd>+<kbd>N</kbd>.
 
-Power users: all features support multiple tabs. Select multiple tabs with <kbd>Ctrl</kbd>/<kbd>Shift</kbd>+click.
+Power users: all features support multiple tabs. Select multiple tabs with <kbd>Ctrl</kbd>/<kbd>Shift</kbd>+<kbd>Click</kbd>.
 
 ## Contributing
 
