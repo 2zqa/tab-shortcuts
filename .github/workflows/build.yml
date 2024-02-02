@@ -1,8 +1,6 @@
 name: "Build"
-on:
-  push:
-    tags:
-      - "v*.*.*"
+
+on: workflow_dispatch
 
 jobs:
   build:
@@ -10,17 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - run: npm install --global web-ext
 
       - name: "Build Add-on"
-        id: web-ext-build
-        uses: kewisch/action-web-ext@v1
-        with:
-          cmd: build
-          source: .
+        run: make
 
-      - name: "Upload Artifact"
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
-          name: target.xpi
-          path: ${{ steps.web-ext-build.outputs.target }}
+          name: web-ext-artifacts
+          path: web-ext-artifacts
+          if-no-files-found: error
