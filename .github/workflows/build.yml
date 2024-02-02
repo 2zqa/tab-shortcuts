@@ -1,6 +1,8 @@
 name: "Build"
 
-on: push
+on:
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -18,8 +20,26 @@ jobs:
       - name: "Build Add-on"
         run: make
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: web-ext-artifacts
-          path: web-ext-artifacts
+          name: web-ext-artifact
+          path: web-ext-artifact/*.zip
           if-no-files-found: error
+
+  publish:
+    name: "Publish"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: web-ext-artifact
+          path: web-ext-artifact
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: web-ext-artifact/*.zip
+          fail_on_unmatched_files: true
