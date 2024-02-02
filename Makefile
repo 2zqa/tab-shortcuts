@@ -1,5 +1,5 @@
 NAME=$(notdir $(CURDIR))
-IGNORE=manifest_*.json README.md Makefile
+IGNORE=manifest_*.json README.md Makefile scripts/
 VERSION=$(shell jq -r .version manifest_base.json)
 PLATFORMS=chromium firefox-desktop
 
