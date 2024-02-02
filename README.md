@@ -31,3 +31,7 @@ Run `make run/firefox-desktop` or `make run/chromium` to start the extension in 
 ### Building
 
 Run `make`. This will generate zip files for each supported browser in the `web-ext-artifacts` directory.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
