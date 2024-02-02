@@ -24,6 +24,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: web-ext-artifact
-          path: web-ext-artifact/*.zip
+          name: web-ext-artifacts
+          path: web-ext-artifacts/*.zip
           if-no-files-found: error
