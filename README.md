@@ -1,6 +1,7 @@
 # ![logo](https://github.com/2zqa/tab-shortcuts/assets/25235249/01599c74-37fc-4f62-8d54-178a37899ebe) Tab Shortcuts
 
-[![Get the add-on](https://github.com/2zqa/tab-shortcuts/assets/25235249/bdeb1c7a-3036-4b86-ac8b-6c43587df7fb)](https://addons.mozilla.org/nl/firefox/addon/tab-shortcuts-2zqa/)
+[![Get the add-on for Firefox](https://github.com/2zqa/tab-shortcuts/assets/25235249/bdeb1c7a-3036-4b86-ac8b-6c43587df7fb)](https://addons.mozilla.org/nl/firefox/addon/tab-shortcuts-2zqa/) [![Get the extension for Chrome and other Chromium-based browsers](https://github.com/2zqa/tab-shortcuts/assets/25235249/afe206f9-7cb4-4726-bc69-65818f76fbbf)](https://chromewebstore.google.com/detail/tab-shortcuts/jhmjdhffddkjnobmogepoljacbjacbeb)
+
 
 Organize your tab management with Tab Shortcuts. Use pinning and multiple windows often? Wish there were shortcuts for managing that? Tab Shortcuts fixes that. Supports Firefox and Chromium-based browsers.
 
