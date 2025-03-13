@@ -12,13 +12,13 @@
       "suggested_key": {
         "default": "Alt+P"
       },
-      "description": "Toggles pinned tab(s)"
+      "description": "Toggle pinned tab(s)"
     },
     "move-to-new-window": {
       "suggested_key": {
         "default": "Alt+N"
       },
-      "description": "Moves tab(s) to a new window"
+      "description": "Move tab(s) to a new window"
     }
   }
 }
